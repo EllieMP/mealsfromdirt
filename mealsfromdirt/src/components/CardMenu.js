@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Container from "@mui/material/Container";
 import Card from '@mui/material/Card';
+import switchConfig from "./configuration";
 
 function CardBox(){
     return(
@@ -10,7 +11,7 @@ function CardBox(){
                 sx={{
                     alignItems: 'center',
                     border: '1px solid black',
-                    backgroundColor: 'grey',
+                    backgroundColor: switchConfig.backgroundColor
                     
                 }}
             >

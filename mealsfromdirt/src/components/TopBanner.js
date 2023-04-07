@@ -6,13 +6,21 @@ import IconButton from '@mui/material/IconButton';
 import HelpIcon from '@mui/icons-material/Help';
 import Toolbar from '@mui/material/Toolbar';
 import Switch from '@mui/material/Switch';
-import { TextField } from "@mui/material";
+import { FormControlLabel, TextField } from "@mui/material";
+import switchConfig from "./configuration";
 
 function TopBar() {
-    const [cardSwitch, setCardSwitch] = useState(true);
+    const [cardSwitch, setCardSwitch] = useState('grey');
 
-    const handleCardSwitch = (event) => {
-        setCardSwitch(event.target.cardSwitch);
+    const handleCardSwitch = () => {
+        if(cardSwitch === 'grey'){
+            setCardSwitch('blue'); 
+        }else if(cardSwitch === 'blue'){
+            setCardSwitch('grey');
+        }
+        
+        switchConfig.backgroundColor = cardSwitch;
+        console.log(switchConfig.backgroundColor);
     }
 
     return(
@@ -47,10 +55,18 @@ function TopBar() {
                             /> 
                         </Box>
                         
-                        <Switch
-                            cardSwitch={cardSwitch}
-                            onChange={handleCardSwitch}
+                        <FormControlLabel
+                            value="bottom"
+                            control={
+                                <Switch
+                                    cardSwitch={cardSwitch}
+                                    onChange={handleCardSwitch}
+                                />
+                            }
+                            label={switchConfig.switchLable}
+                            labelPlacement="bottom"
                         />
+                        
         
                         <IconButton color='primary' > 
                             <HelpIcon fontSize='large' />
