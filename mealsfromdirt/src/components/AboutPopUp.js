@@ -1,11 +1,27 @@
 import { Fragment } from "react";
+import Box from "@mui/material/Box";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
 
-function aboutUs() {
+function AboutUs(props) {
+    const {open} = props;
+    const {handleAboutClose} = props;
+
     return(
-        <Fragment>
-            About Us Pop Up
-        </Fragment>
+        <Dialog
+            open={open}
+            onClose={handleAboutClose}
+        >
+            <DialogTitle>About Us</DialogTitle>
+            <DialogContent>
+                <DialogContentText>
+                    Instructions
+                </DialogContentText>
+            </DialogContent>
+        </Dialog>
     )
 }
 
-export default aboutUs;
+export default AboutUs;

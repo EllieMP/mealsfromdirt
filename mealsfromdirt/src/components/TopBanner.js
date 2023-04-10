@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState} from "react";
 import Box from "@mui/material/Box";
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
@@ -6,21 +6,29 @@ import IconButton from '@mui/material/IconButton';
 import HelpIcon from '@mui/icons-material/Help';
 import Toolbar from '@mui/material/Toolbar';
 import Switch from '@mui/material/Switch';
-import { FormControlLabel, TextField } from "@mui/material";
+import { FormControlLabel, Dialog, TextField, DialogTitle, DialogContent, DialogContentText } from "@mui/material";
 import switchConfig from "./configuration";
+import AboutUs from "./AboutPopUp";
 
-function TopBar() {
-    const [cardSwitch, setCardSwitch] = useState('grey');
+function TopBar(props) { 
+    const {menuType} = props;
+    const {setMenuType} = props;
+    const [open, setOpen] = useState(false);
 
     const handleCardSwitch = () => {
-        if(cardSwitch === 'grey'){
-            setCardSwitch('blue'); 
-        }else if(cardSwitch === 'blue'){
-            setCardSwitch('grey');
+        console.log(menuType);
+        if(menuType.type === 'Crop'){
+            setMenuType({type: 'Meal'})
+        }else if(menuType.type === 'Meal'){
+            setMenuType({type: 'Crop'})
         }
-        
-        switchConfig.backgroundColor = cardSwitch;
-        console.log(switchConfig.backgroundColor);
+    }
+
+    const handleAboutOpen = () => {
+        setOpen(true);
+    }
+    const handleAboutClose = () => {
+        setOpen(false);
     }
 
     return(
@@ -45,6 +53,7 @@ function TopBar() {
                             </Typography>  
                         </Box>
 
+                        {/* Enter Address here */}
                         <Box>
                             <TextField 
                                 id="outlined-basic" 
@@ -55,22 +64,32 @@ function TopBar() {
                             /> 
                         </Box>
                         
+                        {/* Crop/Menu Switch */}
                         <FormControlLabel
                             value="bottom"
                             control={
                                 <Switch
-                                    cardSwitch={cardSwitch}
+                                    menuType={menuType}
                                     onChange={handleCardSwitch}
                                 />
                             }
-                            label={switchConfig.switchLable}
+                            label={menuType.type}
                             labelPlacement="bottom"
                         />
                         
-        
-                        <IconButton color='primary' > 
-                            <HelpIcon fontSize='large' />
-                        </IconButton>
+                        {/* About Us Button */}
+                        <Box>
+                            <IconButton 
+                                onClick={handleAboutOpen}
+                                color='primary' 
+                            > 
+                                <HelpIcon fontSize='large' />
+                            </IconButton>
+                            <AboutUs
+                                open={open}
+                                handleAboutClose={handleAboutClose}
+                            />
+                        </Box>
                         
                     </Toolbar>   
                 </AppBar>
