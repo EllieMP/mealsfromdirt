@@ -9,7 +9,6 @@ function Main(){
 
     const [menuType, setMenuType] = useState({type: 'Crop'});
 
-
     const whichMenu = (menuType) => {
         if(menuType.type === 'Crop'){
             return <CropMenu/>
@@ -27,11 +26,12 @@ function Main(){
                     setMenuType={setMenuType}
                 />
                 
-                <FilterMenu/>
+                <FilterMenu
+        
+                />
                 
                 {whichMenu(menuType)}
-                
-                
+                              
             </Box>
 
         </Fragment>
