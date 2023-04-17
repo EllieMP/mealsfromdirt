@@ -9,6 +9,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
+import Stack from '@mui/material/Stack';
 //import switchConfig from "./configuration";
 
 function MealMenu(){
@@ -47,15 +48,26 @@ function MealMenu(){
                         />
                     </CardActionArea>
                 </Card>
-                <Dialog open={open}
-                        onClose={handleCardClose}>
-                        <DialogTitle>Meal Card Content</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText>
-                                Description
-                            </DialogContentText>
-                        </DialogContent>
-                </Dialog>
+                <Stack>
+                    <Dialog open={open}
+                            onClose={handleCardClose}>
+                            <DialogTitle>Meal Card Content</DialogTitle>
+                            <DialogContent>
+                                <DialogContentText>
+                                    Ingredients
+                                </DialogContentText>
+                                <DialogContentText>
+                                    Description
+                                </DialogContentText>
+                                <DialogContentText>
+                                    Recommendation
+                                </DialogContentText>
+                                <DialogContentText>
+                                    Resources
+                                </DialogContentText>
+                            </DialogContent>
+                    </Dialog>
+               </Stack>
             </Container>
         </Fragment>
     )

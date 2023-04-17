@@ -9,6 +9,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
+import Stack from '@mui/material/Stack';
 //import switchConfig from "./configuration";
 
 function CropMenu(){
@@ -47,17 +48,22 @@ function CropMenu(){
                         />
                     </CardActionArea>
                 </Card>
-                <Dialog
-                    open={open}
-                    onClose={handleCardClose}
-                >
-                    <DialogTitle>Crop Card Content</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Description
-                        </DialogContentText>
-                    </DialogContent>
-                </Dialog>
+                <Stack>
+                    <Dialog
+                        open={open}
+                        onClose={handleCardClose}
+                    >
+                        <DialogTitle>Crop Card Content</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                Description
+                            </DialogContentText>
+                            <DialogContentText>
+                                Resources
+                            </DialogContentText>
+                        </DialogContent>
+                    </Dialog>
+               </Stack>
             </Container>
         </Fragment>
     )
