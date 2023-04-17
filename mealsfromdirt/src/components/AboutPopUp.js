@@ -17,6 +17,9 @@ function AboutUs(props) {
             <DialogTitle>About Us</DialogTitle>
             <DialogContent>
                 <DialogContentText>
+                    About MealsFromDirt
+                </DialogContentText>
+                <DialogContentText>
                     Instructions
                 </DialogContentText>
             </DialogContent>
