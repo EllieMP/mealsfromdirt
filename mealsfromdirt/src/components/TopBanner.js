@@ -43,13 +43,12 @@ function TopBar(props) {
                     <Toolbar>
                         <Box
                             align='left'
-                            sx={{width:140}}
+                            sx={{m:1}}
                         >
-                            {/* Possibly change to image of logo instead */}
                             <Typography
                                 variant="h6"
                             >
-                                MealsFromDirt
+                               <img style={{ height: 90, width: 140 }} src="/mfdLogo.png" alt="Meals From Dirt Logo" />
                             </Typography>  
                         </Box>
 
