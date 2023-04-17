@@ -5,7 +5,6 @@ import CropMenu from './CropMenu';
 import MealMenu from './MealMenu';
 import Button from '@mui/material/Button';
 
-
 function Main(){
 
     const [menuType, setMenuType] = useState({type: 'Crop'});
