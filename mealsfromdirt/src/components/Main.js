@@ -4,18 +4,17 @@ import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
 import MealMenu from './MealMenu';
 import Button from '@mui/material/Button';
-
+import FilterMenu from './FilterMenu';
 
 function Main(){
 
     const [menuType, setMenuType] = useState({type: 'Crop'});
 
-
     const whichMenu = (menuType) => {
         if(menuType.type === 'Crop'){
-            return <CropMenu/>
+            return <CropMenu />
         }else if(menuType.type === 'Meal'){
-            return <MealMenu/>
+            return <MealMenu />
         }
     }
 
@@ -28,16 +27,11 @@ function Main(){
                     setMenuType={setMenuType}
                 />
                 
-                <Button variant="contained">
-                    Filter
-                </Button>
-
+                <FilterMenu/>
                 
                 {whichMenu(menuType)}
                 
-                
             </Box>
-
         </Fragment>
     )
 }
