@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import HelpIcon from '@mui/icons-material/Help';
 import Toolbar from '@mui/material/Toolbar';
 import Switch from '@mui/material/Switch';
-import { FormControlLabel, Dialog, TextField, DialogTitle, DialogContent, DialogContentText } from "@mui/material";
+import { FormControlLabel, TextField} from "@mui/material";
 import switchConfig from "./configuration";
 import AboutUs from "./AboutPopUp";
 
@@ -53,13 +53,17 @@ function TopBar(props) {
                         </Box>
 
                         {/* Enter Address here */}
-                        <Box>
+                        <Box
+                            sx={{ flexGrow: 1 }}
+                            align='center'
+                        >
                             <TextField 
                                 id="outlined-basic" 
                                 label="Address" 
                                 variant="outlined"
                                 margin="normal"
                                 InputLabelProps={{ style:{ color: 'white' } }}
+                                InputProps={{ style:{ color: 'white' } }}
                             /> 
                         </Box>
                         
