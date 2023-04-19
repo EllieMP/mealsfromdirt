@@ -26,9 +26,7 @@ function Main(){
                     setMenuType={setMenuType}
                 />
                 
-                <FilterMenu
-        
-                />
+                <FilterMenu/>
                 
                 {whichMenu(menuType)}
                               
