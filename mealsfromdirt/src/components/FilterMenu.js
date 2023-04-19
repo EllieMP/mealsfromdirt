@@ -10,7 +10,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
 
 
-function FilterMenu(props){
+function FilterMenu(){
     const [expanded, setExpanded] = useState(false);
     
     function handleFilterButton() {
