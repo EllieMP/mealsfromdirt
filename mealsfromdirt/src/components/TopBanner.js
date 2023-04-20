@@ -7,7 +7,6 @@ import HelpIcon from '@mui/icons-material/Help';
 import Toolbar from '@mui/material/Toolbar';
 import Switch from '@mui/material/Switch';
 import { FormControlLabel, TextField} from "@mui/material";
-import switchConfig from "./configuration";
 import AboutUs from "./AboutPopUp";
 
 function TopBar(props) { 

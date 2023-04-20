@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
 import MealMenu from './MealMenu';
-import Button from '@mui/material/Button';
 import FilterMenu from './FilterMenu';
 
 function Main(){
