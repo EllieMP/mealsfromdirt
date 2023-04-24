@@ -9,6 +9,10 @@ import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
 import { Typography } from "@mui/material";
 
+function valueLabelFormat(slider){
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',' Dec'];
+    return `${months[slider-1]}`;
+}
 
 function FilterMenu(){
     const [expanded, setExpanded] = useState(false);
@@ -91,6 +95,7 @@ function FilterMenu(){
                         aria-label="Range of Planting Dates"
                         value={plantSlider}
                         onChange={handlePlantSlider}
+                        valueLabelFormat={valueLabelFormat}
                         valueLabelDisplay="auto"
                         step={1}
                         marks
@@ -104,6 +109,7 @@ function FilterMenu(){
                         aria-label="Range of Harvest Dates"
                         value={harvestSlider}
                         onChange={handleHarvestSlider}
+                        valueLabelFormat={valueLabelFormat}
                         valueLabelDisplay="auto"
                         step={1}
                         marks

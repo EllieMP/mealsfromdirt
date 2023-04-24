@@ -17,21 +17,40 @@ function Main(){
         }
     }
 
-    return(
-        <Fragment>
-            <Box>
+    const MainPage = () => {
+        return(
+            <Fragment>
+                <Box>
+                    <TopBar
+                        menuType={menuType}
+                        setMenuType={setMenuType}
+                    />
+    
+                    <FilterMenu/>
+    
+                    {whichMenu(menuType)}  
+                </Box>
+            </Fragment>
+        )
+    }
 
-                <TopBar
-                    menuType={menuType}
-                    setMenuType={setMenuType}
-                />
-                
-                <FilterMenu/>
-                
-                {whichMenu(menuType)}
-                              
-            </Box>
-        </Fragment>
+    function startingPage(){
+        return(
+            <Fragment>  
+                <Box>
+                    <Box>
+                        Image
+                    </Box>
+                    <Box>
+                        Search Bar
+                    </Box>
+                </Box>
+            </Fragment>
+        )
+    }
+
+    return(
+        <MainPage />
     )
 }
 
