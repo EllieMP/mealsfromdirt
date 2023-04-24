@@ -1,0 +1,10 @@
+{
+    "apiPort": 3307,
+    "apiHostName": "localhost",
+
+    "dbHost": "localhost",
+    "dbPort": 3306,
+    "dbName":"MFD_meals_from_dirt",
+    "dbUsername": "meals_from_dirt",
+    "dbPassword": "changeme"
+}
