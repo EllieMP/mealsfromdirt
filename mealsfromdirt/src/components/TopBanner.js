@@ -8,6 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Switch from '@mui/material/Switch';
 import { FormControlLabel, TextField} from "@mui/material";
 import AboutUs from "./AboutPopUp";
+import Search from "./Search";
 
 function TopBar(props) { 
     const {menuType} = props;
@@ -52,19 +53,7 @@ function TopBar(props) {
                         </Box>
 
                         {/* Enter Address here */}
-                        <Box
-                            sx={{ flexGrow: 1 }}
-                            align='center'
-                        >
-                            <TextField 
-                                id="outlined-basic" 
-                                label="Address" 
-                                variant="outlined"
-                                margin="normal"
-                                InputLabelProps={{ style:{ color: 'white' } }}
-                                InputProps={{ style:{ color: 'white' } }}
-                            /> 
-                        </Box>
+                        <Search />
                         
                         {/* Crop/Menu Switch */}
                         <FormControlLabel
