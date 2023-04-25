@@ -8,9 +8,9 @@ class CropTagsController {
             return new Promise((resolve, reject) => {
                 const query = `
                 SELECT * FROM 
-                    MFD_crops INNER JOIN MFD_crop_tags ON 
-                    MFD_recipes.crop_id = MFD_crop_tags.crop_id
-                    WHERE MFD_crop_biomes.crop_tag = ?
+                    MFD_crops INNER JOIN MFD_crop_tags 
+                        ON MFD_crops.crop_id = MFD_crop_tags.crop_id
+                    WHERE crop_tag = ?
                     ORDER BY crop_name;
                 `;
                 dbConnection.query({

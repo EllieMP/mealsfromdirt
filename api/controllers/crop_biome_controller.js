@@ -8,8 +8,8 @@ class CropBiomeController {
             return new Promise((resolve, reject) => {
                 const query = `
                     SELECT * FROM 
-                        MFD_crops INNER JOIN MFD_crop_biomes ON 
-                        MFD_recipes.crop_id = MFD_crop_biomes.crop_id
+                        MFD_crops INNER JOIN MFD_crop_biomes 
+                            ON MFD_crops.crop_id = MFD_crop_biomes.crop_id
                         WHERE MFD_crop_biomes.crop_biome = ?
                         ORDER BY crop_name;
                 `;

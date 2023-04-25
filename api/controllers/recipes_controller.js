@@ -39,6 +39,7 @@ class RecipesController {
                             ON crop_id = MFD_crops.crop_id;
                         WHERE
                             recipe_id = ?;
+                        ORDER BY recipe_name;
                 `;
                 dbConnection.query({
                         sql: query,
@@ -88,4 +89,4 @@ class RecipesController {
     }
 }
 
-module.exports = CropsController;
+module.exports = RecipesController;

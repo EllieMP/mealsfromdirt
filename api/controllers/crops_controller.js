@@ -59,13 +59,16 @@ class CropsController {
         try{
             return new Promise((resolve, reject) => {
                 const query = `
-                    INSERT INTO MFD_crops (crop_name, crop_description, crop_image_link)
-                    VALUES (?, ?, ?);
+                    INSERT INTO MFD_crops (crop_name, crop_description, crop_image_link, 
+                                            crop_plant_month, crop_harvest_month)
+                    VALUES (?, ?, ?, ?, ?);
                 `;
                 dbConnection.query(
                     {
                         sql: query,
-                        values: [ctx.params.crop_name, ctx.params.crop_description ,ctx.params.crop_image_link]
+                        values: [ctx.params.crop_name, ctx.params.crop_description, 
+                                ctx.params.crop_image_link, ctx.params.crop_plant_month, 
+                                ctx.params.crop_harvest_month]
                     }, (err, res) => {
                         if(err) {
                             ctx.body = err;

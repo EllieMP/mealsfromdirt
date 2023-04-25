@@ -1,11 +1,11 @@
-const recipeController = require('../controllers/recipes_controller.js');
-const recipeRouter = require('koa-router')({
+const recipesController = require('../controllers/recipes_controller.js');
+const recipesRouter = require('koa-router')({
     prefix: '/crop_tag' // crops table functions path
 });
 
-recipeRouter.get('/:recipe_id', recipeController.getRecipeByID);
-recipeRouter.get('/:crop_id', recipeController. getTagsWithCropID);
+recipesRouter.get('/:recipe_id', recipesController.getRecipeByID);
+recipesRouter.get('/:recipe_id', recipesController.getRecipeByBiome);
 
-recipeRouter.post('/new/:crop_id/:crop_biome', recipeController.addRecipe);
+recipesRouter.post('/new/:recipe_name/:recipe_description/:recipe_instructions/:recipe_image_link', recipesController.addRecipe);
 
-module.exports = cropTagsRouter;
+module.exports = recipesRouter;
