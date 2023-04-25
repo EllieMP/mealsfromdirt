@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS  MFD_crops (
     crop_name varchar(128) NOT NULL,
     crop_description varchar(4096) DEFAULT NULL,
     crop_image_link varchar(2048) DEFAULT NULL,
+    crop_plant_month int DEFAULT NULL,
+    crop_harvest_month int DEFAULT NULL,
     PRIMARY KEY (crop_id)
 );
 
