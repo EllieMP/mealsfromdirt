@@ -7,11 +7,40 @@ class CropTagsController {
         try{
             return new Promise((resolve, reject) => {
                 const query = `
-                    SELECT * FROM MFD_crop_tags WHERE crop_tag = ?;
+                SELECT * FROM 
+                    MFD_crops INNER JOIN MFD_crop_tags ON 
+                    MFD_recipes.crop_id = MFD_crop_tags.crop_id
+                    WHERE MFD_crop_biomes.crop_tag = ?
+                    ORDER BY crop_name;
                 `;
                 dbConnection.query({
                         sql: query,
                         values: [ctx.params.crop_tag]
+                    }, (err, res) => {
+                    if(err) {
+                        ctx.body = err;
+                        ctx.status = 500;
+                        reject(err);
+                    }
+                    ctx.body = res;
+                    ctx.status = 200;
+                    resolve();
+                });
+            });
+        } catch(err){
+            console.log(`Error in the crop tag controller: ${err}`);
+        }
+    }
+
+    static async getTagsWithCropID(ctx) {
+        try{
+            return new Promise((resolve, reject) => {
+                const query = `
+                    SELECT crop_tag FROM MFD_crop_tags WHERE crop_id = ?;
+                `;
+                dbConnection.query({
+                        sql: query,
+                        values: [ctx.params.crop_id]
                     }, (err, res) => {
                     if(err) {
                         ctx.body = err;
