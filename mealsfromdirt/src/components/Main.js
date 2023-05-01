@@ -30,7 +30,7 @@ function Main(){
                 <FilterMenu/>
                 
                 {whichMenu(menuType)}
-                
+                              
             </Box>
         </Fragment>
     )
