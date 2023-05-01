@@ -4,7 +4,7 @@ const recipesRouter = require('koa-router')({
 });
 
 recipesRouter.get('/:recipe_id', recipesController.getRecipeByID);
-recipesRouter.get('/:recipe_id', recipesController.getRecipeByBiome);
+recipesRouter.get('/:recipe_id', recipesController.getCropsForRecipe);
 
 recipesRouter.post('/new/:recipe_name/:recipe_description/:recipe_instructions/:recipe_image_link', recipesController.addRecipe);
 
