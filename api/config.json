@@ -2,9 +2,15 @@
     "apiPort": 3307,
     "apiHostName": "localhost",
 
-    "dbHost": "localhost",
+    "dbHost": "192.168.1.101",
     "dbPort": 3306,
     "dbName":"MFD_meals_from_dirt",
     "dbUsername": "meals_from_dirt",
-    "dbPassword": "changeme"
+    "dbPassword": "changeme",
+
+    "pgUser":"postgres",
+    "pgHost": "192.168.1.101",
+    "pgDatabase": "us_biomes",
+    "pgPassword": "changeme",
+    "pgPort": 5432
 }

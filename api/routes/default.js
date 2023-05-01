@@ -3,6 +3,7 @@ const cropTagsRouter = require('./crop_tags_router.js');
 const cropBiomeRouter = require('./crop_biome_router.js');
 const cropsInRecipeRouter = require('./crops_in_recipe_router.js');
 const recipesRouter = require('./recipes_router.js');
+const cordToBiomeRouter = require('./cordinate_to_biome_router.js');
 
 const defaultRouter = require('koa-router')({
     prefix: '/api/v1'
@@ -17,6 +18,7 @@ defaultRouter.use(cropTagsRouter.routes());
 defaultRouter.use(cropBiomeRouter.routes());
 defaultRouter.use(cropsInRecipeRouter.routes());
 defaultRouter.use(recipesRouter.routes());
+defaultRouter.use(cordToBiomeRouter.routes());
 
 module.exports = api => {
     api.use(

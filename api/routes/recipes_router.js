@@ -1,6 +1,6 @@
 const recipesController = require('../controllers/recipes_controller.js');
 const recipesRouter = require('koa-router')({
-    prefix: '/crop_tag' // crops table functions path
+    prefix: '/recipe' // crops table functions path
 });
 
 recipesRouter.get('/:recipe_id', recipesController.getRecipeByID);
