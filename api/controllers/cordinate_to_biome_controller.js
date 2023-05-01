@@ -9,7 +9,7 @@ class CordinateToBiomeController {
                 const query = `
                     SELECT eco_name FROM public.mfd_biomes_world WHERE ST_Intersects(geom, ST_SetSRID(ST_MakePoint($1, $2), 4326));
                 `;
-                dbConnection.query(query, [ctx.params.lat, ctx.params.long], (err, res) => {
+                dbConnection.query(query, [ctx.params.long, ctx.params.lat], (err, res) => {
                     if(err) {
                         ctx.body = err;
                         ctx.status = 500;
