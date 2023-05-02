@@ -68,4 +68,16 @@ export default class APIInterface {
     async getRecipeByBiome(recipe_id) {
         return axiosAgent.get(`recipe/${recipe_id}`);
     }
+
+    async getCropsFromCord(lat, long) {
+        return axiosAgent.get(`/cords_to_crops/${lat}/${long}`);
+    }
+
+    async getRecipesFromCords(lat, long) {
+        return axiosAgent.get(`/cords_to_recipes/${lat}/${long}`);
+    }
+
+    async getCropsFromCords(lat, long) {
+        return axiosAgent.get(`/cords_to_crops/${lat}/${long}`);
+    }
 }

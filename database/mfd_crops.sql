@@ -4,7 +4,7 @@ INSERT INTO mfd_crops (crop_id, crop_name, crop_description, crop_plant_month, c
 
 INSERT INTO mfd_crops (crop_id, crop_name, crop_description, crop_plant_month, crop_harvest_month, crop_image_link) VALUES ('3', 'Lentil', 'Lentil is a type of legume that is high in protein and fiber', '8', '3', 'https://balconygardenweb.b-cdn.net/wp-content/uploads/2015/10/how-to-grow-lentils_mini.jpg');
 
-INSERT INTO mfd_crops (crop_id, crop_name, crop_description, crop_plant_month, crop_harvest_month, crop_image_link) VALUES ('4', 'Kale', 'Kale is a popular superfood that is rich in vitamins and minerals', '11', '5', 'https://plants.sc.egov.usda.gov/ImageLibrary/large/arhy_002_lhp.jpg');
+INSERT INTO mfd_crops (crop_id, crop_name, crop_description, crop_plant_month, crop_harvest_month, crop_image_link) VALUES ('4', 'Leek', 'Leeks are a good source of vitamins and minerals, including vitamin K, vitamin C, and folate.', '4', '8', 'https://www.grocery.coop/sites/default/files/styles/amp_metadata_content_image_min_696px_wide/public/wp-content/uploads/2011/06/Leeks_11.jpg?itok=T1pikcVg');
 
 INSERT INTO mfd_crops (crop_id, crop_name, crop_description, crop_plant_month, crop_harvest_month, crop_image_link) VALUES ('5', 'Beet', 'Beet is a root vegetable that is known for its bright red color and sweet taste', '7', '9', 'https://plants.sc.egov.usda.gov/ImageLibrary/large/bevu2_001_lvp.jpg');
 

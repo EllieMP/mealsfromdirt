@@ -1,72 +1,54 @@
 import { Fragment, useState } from "react";
 import Container from "@mui/material/Container";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import Stack from '@mui/material/Stack';
-//import switchConfig from "./configuration";
+import Grid from '@mui/material/Grid';
+import CropCard from './CropCard';
 
-function CropMenu(){
-    const [open, setOpen] = useState(false);
-
-    const handleCardOpen = () => {
-        setOpen(true);
-    }
-    const handleCardClose = () => {
-        setOpen(false);
-    }
-
-    return(
-        <Fragment>
-            <Container
-                maxWidth="md"
-                sx={{
-                    alignItems: 'center',
-                    border: '1px solid black',
-                    backgroundColor: 'grey'
+function CropMenu(props){
+    const { cropCardInfo } = props;
+    console.log(cropCardInfo);
+    if (cropCardInfo != undefined && cropCardInfo.length != 0) {
+        return(
+            <Fragment>
+                <Container
+                    maxWidth="md"
+                    sx={{
+                        alignItems: 'center',
+                        border: '1px solid black',
+                        backgroundColor: 'grey'
+                        
+                    }}
+                >
+                    <Grid container>
+                    {
+                            cropCardInfo.map((cropCardInfo, idx) => 
+                            <Grid item key={cropCardInfo.crop_id}>
+                                <CropCard cropName={cropCardInfo.crop_name} cropImgURL={cropCardInfo.crop_image_link} cropDesc={cropCardInfo.crop_description} cropResources='Sample Recource'/>
+                            </Grid>)
+                    }
+                    </Grid>
                     
-                }}
-            >
-                <Card sx={{  width:200, height:200, m: 2 }}>
-                    <CardActionArea onClick={handleCardOpen}>
-                        <CardContent>
-                            <Typography gutterBottom variant="h6" component="div">
-                                Crop Card Content
-                            </Typography>
-                        </CardContent>
-                        <CardMedia
-                            //src={}
-                            component="img"
-                            height="100"
-                            alt="image"
-                        />
-                    </CardActionArea>
-                </Card>
-                <Stack>
-                    <Dialog
-                        open={open}
-                        onClose={handleCardClose}
-                    >
-                        <DialogTitle>Crop Card Content</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText>
-                                Description
-                            </DialogContentText>
-                            <DialogContentText>
-                                Resources
-                            </DialogContentText>
-                        </DialogContent>
-                    </Dialog>
-               </Stack>
-            </Container>
-        </Fragment>
-    )
+                </Container>
+            </Fragment>
+        )
+    }
+    else {
+        return(
+            <Fragment>
+                <Container
+                    maxWidth="md"
+                    sx={{
+                        alignItems: 'center',
+                        border: '1px solid black',
+                        backgroundColor: 'grey'
+                        
+                    }}
+                >
+                    <CropCard cropName='No crops found' cropImgURL='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVdTLhSBuvDTmljJS06iWMY4o-j1OokyZvug&usqp=CAU' cropDesc='No crops found :(' cropResources=''/>
+                </Container>
+            </Fragment>
+        )
+    }
 }
+//<CropCard cropName='Cucumber' cropImgURL={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjVzELdzmAcJPzFiCzY2RQdZ36CRkY8G09wg&usqp=CAU'} cropDesc='Description of cucumber' cropResources='Cucumber resources' />
 
 export default CropMenu;
