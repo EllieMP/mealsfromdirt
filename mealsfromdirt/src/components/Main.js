@@ -12,7 +12,7 @@ function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});
     const [coordinates, setCoordinates] = useState(null);
-    // const [pageType, setPageType] = useState(true); 
+    const [pageType, setPageType] = useState(true); 
         // true -> initial page :: false -> main page
 
     const whichMenu = () => {
@@ -23,13 +23,13 @@ function Main(){
         }
     }
 
-    // const whichPage = () => {
-    //     if(pageType){
-    //         return <StartingPage />
-    //     }else {
-    //         return <MainPage />
-    //     }
-    // }
+    const whichPage = () => {
+        if(pageType){
+            return <StartingPage />
+        }else {
+            return <MainPage />
+        }
+    }
 
     const MainPage = () => {
         return(
@@ -39,12 +39,12 @@ function Main(){
                         menutype={menutype}
                         setMenuType={setMenuType}
                         setCoordinates={setCoordinates}
+                        setPageType={setPageType}
                     />
     
                     {console.log(coordinates)}
 
                     <FilterMenu/>
-
     
                     {whichMenu()}  
                 </Box>
@@ -75,7 +75,7 @@ function Main(){
                         <GeocodingSearchBar 
                             coordinates={coordinates}
                             setCoordinates={setCoordinates}
-                            // setPageType={setPageType}
+                            setPageType={setPageType}
                         />
                     </Box>
                 </Box>
@@ -84,11 +84,11 @@ function Main(){
     }
 
     return(
-        <MainPage />
+        // <MainPage />
         // <StartingPage />
-        // <Box>
-        //     {whichPage()}  
-        // </Box>
+        <Box>
+            {whichPage()}  
+        </Box>
         
     )
 }

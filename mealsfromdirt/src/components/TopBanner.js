@@ -14,6 +14,7 @@ function TopBar(props) {
     const {menutype} = props;
     const {setMenuType} = props;
     const {setCoordinates} = props;
+    const {setPageType} = props;
     const [open, setOpen] = useState(false);
 
     const handleCardSwitch = () => {
@@ -56,6 +57,7 @@ function TopBar(props) {
                         {/* Enter Address here */}
                         <GeocodingSearchBar 
                             setCoordinates={setCoordinates}
+                            setPageType={setPageType}
                         />
                         
                         {/* Crop/Menu Switch */}

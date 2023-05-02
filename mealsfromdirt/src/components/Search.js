@@ -7,7 +7,7 @@ import Access from './Info';
 // '1801 E Cotati Ave, Rohnert Park, CA';
 function GeocodingSearchBar(props) {
   const {setCoordinates} = props;
-  // const {setPageType} = props;
+  const {setPageType} = props;
   const [address, setAddress] = useState('');
 
   function handleAddressChange(event) {
@@ -26,14 +26,14 @@ function GeocodingSearchBar(props) {
         const latitude = data.results[0].geometry.location.lat;
         const longitude = data.results[0].geometry.location.lng;
         setCoordinates({lat: latitude, lng: longitude});
-      
+        setPageType(false);
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
         
       })
       .catch(error => {
         console.error('Error:', error);
       });
-    // setPageType(false);
+    
   }
 
   return (
