@@ -1,14 +1,13 @@
-import { Paper, InputBase, Box, TextField, IconButton } from '@mui/material';
+import { Paper, InputBase, Box, IconButton } from '@mui/material';
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import { grey } from '@mui/material/colors';
 import Access from './Info';
 
 // '1801 E Cotati Ave, Rohnert Park, CA';
 function GeocodingSearchBar(props) {
-  const {coordinates} = props;
   const {setCoordinates} = props;
+  // const {setPageType} = props;
   const [address, setAddress] = useState('');
 
   function handleAddressChange(event) {
@@ -26,20 +25,33 @@ function GeocodingSearchBar(props) {
       .then(data => {
         const latitude = data.results[0].geometry.location.lat;
         const longitude = data.results[0].geometry.location.lng;
-        setCoordinates([latitude, longitude]);
-        console.log(`Latitude: ${coordinates[0]}, Longitude: ${coordinates[1]}`);
+        setCoordinates({lat: latitude, lng: longitude});
+      
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        
       })
       .catch(error => {
         console.error('Error:', error);
       });
+    // setPageType(false);
   }
 
   return (
-    <Box align='center' sx={{flexGrow: 1}} >
+    <Box 
+      align='center' 
+      sx={{
+        flexGrow: 1, 
+      }} 
+      >
       <Paper
         elevation={3}
-        component='form'
-        sx={{ display: 'flex', width: 225, backgroundColor: 'rgb(50,53,60)'}}
+        sx={{ 
+          display: 'flex', 
+          width: 225, 
+          backgroundColor: 'rgb(50,53,60)',
+          alignItems: 'center', 
+          justifyContent: 'center'
+        }}
       >
         <form onSubmit={handleSearch}>
           <InputBase 
@@ -47,7 +59,6 @@ function GeocodingSearchBar(props) {
             sx={{ ml: 1, flex: 1 }}
             placeholder="Search Google Maps"
             inputProps={{ 'aria-label': 'search google maps', style:{ color: 'white' } }}
-            InputLabelProps={{ style:{ color: 'white' } }}
             value = {address}
             onChange={handleAddressChange}
           /> 
@@ -59,12 +70,5 @@ function GeocodingSearchBar(props) {
     </Box>
   );
 }
-
-ReactDOM.render(
-  <React.StrictMode>
-    <GeocodingSearchBar />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
 export default GeocodingSearchBar;

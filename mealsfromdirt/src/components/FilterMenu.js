@@ -93,7 +93,7 @@ function FilterMenu(){
                         Range of Planting
                     </Typography>
                     <Slider
-                        aria-label="Range of Planting Dates"
+                        getAriaLabel={() => 'Range of Planting Dates'}
                         value={plantSlider}
                         onChange={handlePlantSlider}
                         valueLabelFormat={valueLabelFormat}
@@ -107,7 +107,7 @@ function FilterMenu(){
                         Range of Harvest
                     </Typography>
                     <Slider
-                        aria-label="Range of Harvest Dates"
+                        getAriaLabel={() => 'Range of Harvest Dates'}
                         value={harvestSlider}
                         onChange={handleHarvestSlider}
                         valueLabelFormat={valueLabelFormat}
