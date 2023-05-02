@@ -4,48 +4,78 @@ import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
 import MealMenu from './MealMenu';
 import FilterMenu from './FilterMenu';
+import { Typography } from '@mui/material';
+import GeocodingSearchBar from './Search';
 
 function Main(){
 
-    const [menuType, setMenuType] = useState({type: 'Crop'});
-    const [coordinates, setCoordinates] = useState([0 , 0]) // [ Latitude, Longitude ]
+    const [menutype, setMenuType] = useState({type: 'Crop'});
+    const [coordinates, setCoordinates] = useState(null);
+    // const [pageType, setPageType] = useState(true); 
+        // true -> initial page :: false -> main page
 
-    const whichMenu = (menuType) => {
-        if(menuType.type === 'Crop'){
+    const whichMenu = () => {
+        if(menutype.type === 'Crop'){
             return <CropMenu />
-        }else if(menuType.type === 'Meal'){
+        }else if(menutype.type === 'Meal'){
             return <MealMenu />
         }
     }
+
+    // const whichPage = () => {
+    //     if(pageType){
+    //         return <StartingPage />
+    //     }else {
+    //         return <MainPage />
+    //     }
+    // }
 
     const MainPage = () => {
         return(
             <Fragment>
                 <Box>
                     <TopBar
-                        menuType={menuType}
+                        menutype={menutype}
                         setMenuType={setMenuType}
-                        coordinates={coordinates}
                         setCoordinates={setCoordinates}
                     />
     
+                    {console.log(coordinates)}
+
                     <FilterMenu/>
+
     
-                    {whichMenu(menuType)}  
+                    {whichMenu()}  
                 </Box>
             </Fragment>
         )
     }
 
-    function startingPage(){
+    const StartingPage = () => {
         return(
             <Fragment>  
-                <Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: '100%',
+                        m: 10,
+                        border: '1px solid red' 
+                    }}
+                >
                     <Box>
-                        Image
+                        <Typography>
+                            <img style={{ height: 360, width: 560 }} src="/mfdLogo.png" alt="Meals From Dirt Logo" />
+                        </Typography>  
                     </Box>
                     <Box>
-                        Search Bar
+                        <GeocodingSearchBar 
+                            coordinates={coordinates}
+                            setCoordinates={setCoordinates}
+                            // setPageType={setPageType}
+                        />
                     </Box>
                 </Box>
             </Fragment>
@@ -54,6 +84,11 @@ function Main(){
 
     return(
         <MainPage />
+        // <StartingPage />
+        // <Box>
+        //     {whichPage()}  
+        // </Box>
+        
     )
 }
 
