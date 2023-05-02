@@ -29,7 +29,7 @@ function MealMenu(){
                 sx={{
                     alignItems: 'center',
                     border: '1px solid black',
-                    backgroundColor: 'grey'
+                    backgroundColor: 'lightgrey'
                     
                 }}
             >

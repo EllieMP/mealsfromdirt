@@ -6,20 +6,22 @@ import IconButton from '@mui/material/IconButton';
 import HelpIcon from '@mui/icons-material/Help';
 import Toolbar from '@mui/material/Toolbar';
 import Switch from '@mui/material/Switch';
-import { FormControlLabel, TextField} from "@mui/material";
-import switchConfig from "./configuration";
+import { FormControlLabel} from "@mui/material";
 import AboutUs from "./AboutPopUp";
+import GeocodingSearchBar from "./Search";
 
 function TopBar(props) { 
-    const {menuType} = props;
+    const {menutype} = props;
     const {setMenuType} = props;
+    const {setCoordinates} = props;
+    const {setPageType} = props;
     const [open, setOpen] = useState(false);
 
     const handleCardSwitch = () => {
-        console.log(menuType);
-        if(menuType.type === 'Crop'){
+        console.log(menutype);
+        if(menutype.type === 'Crop'){
             setMenuType({type: 'Meal'})
-        }else if(menuType.type === 'Meal'){
+        }else if(menutype.type === 'Meal'){
             setMenuType({type: 'Crop'})
         }
     }
@@ -53,30 +55,21 @@ function TopBar(props) {
                         </Box>
 
                         {/* Enter Address here */}
-                        <Box
-                            sx={{ flexGrow: 1 }}
-                            align='center'
-                        >
-                            <TextField 
-                                id="outlined-basic" 
-                                label="Address" 
-                                variant="outlined"
-                                margin="normal"
-                                InputLabelProps={{ style:{ color: 'white' } }}
-                                InputProps={{ style:{ color: 'white' } }}
-                            /> 
-                        </Box>
+                        <GeocodingSearchBar 
+                            setCoordinates={setCoordinates}
+                            setPageType={setPageType}
+                        />
                         
                         {/* Crop/Menu Switch */}
                         <FormControlLabel
                             value="bottom"
                             control={
                                 <Switch
-                                    menuType={menuType}
+                                    menutype={menutype}
                                     onChange={handleCardSwitch}
                                 />
                             }
-                            label={menuType.type}
+                            label={menutype.type}
                             labelPlacement="bottom"
                         />
                         
