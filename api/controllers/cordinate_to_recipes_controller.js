@@ -21,7 +21,7 @@ class CordinateToRecipesController {
                     }
                     else {
                         const mariaDBQuery = `
-                        SELECT MFD_recipes.recipe_id, MFD_recipes.recipe_name, MFD_recipes.recipe_description, 
+                        SELECT DISTINCT(MFD_recipes.recipe_id), MFD_recipes.recipe_name, MFD_recipes.recipe_description, 
                         MFD_recipes.recipe_instructions, MFD_recipes.recipe_image_link FROM 
                             MFD_crops INNER JOIN MFD_crop_biomes 
                                 ON MFD_crops.crop_id = MFD_crop_biomes.crop_id AND MFD_crop_biomes.crop_biome = ?
