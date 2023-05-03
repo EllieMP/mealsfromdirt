@@ -14,7 +14,8 @@ function TopBar(props) {
     const {menutype} = props;
     const {setMenuType} = props;
     const {setCoordinates} = props;
-    const {setPageType} = props;
+    const {setInitialPage} = props;
+    const {initialpage} = props;
     const [open, setOpen] = useState(false);
 
     const handleCardSwitch = () => {
@@ -32,6 +33,28 @@ function TopBar(props) {
         setOpen(false);
     }
 
+    const showSearch = (
+        <GeocodingSearchBar 
+            setCoordinates={setCoordinates}
+            setInitialPage={setInitialPage}
+        />
+    );
+
+    const showSlider = (
+        <FormControlLabel
+            value="bottom"
+            control={
+                <Switch
+                    menutype={menutype}
+                    onChange={handleCardSwitch}
+                />
+            }
+            label={menutype.type}
+            labelPlacement="bottom"
+        />
+    );
+    
+
     return(
         <Fragment>
             <Box>
@@ -43,8 +66,12 @@ function TopBar(props) {
                 >
                     <Toolbar>
                         <Box
-                            align='left'
-                            sx={{m:1}}
+                            style={{
+                                display: 'flex',
+                                width: '90%',
+                                alignItems: 'center',
+                                // border: '1px solid red', 
+                            }}
                         >
                             <Typography
                                 variant="h6"
@@ -54,26 +81,37 @@ function TopBar(props) {
                         </Box>
 
                         {/* Enter Address here */}
-                        <GeocodingSearchBar 
-                            setCoordinates={setCoordinates}
-                            setPageType={setPageType}
-                        />
-                        
+                        <Box
+                        style={{
+                            display: 'flex',
+                            width: '100%',
+                            // border: '1px solid red', 
+                        }}
+                        >
+                            {!initialpage && showSearch}
+                        </Box>
                         {/* Crop/Menu Switch */}
-                        <FormControlLabel
-                            value="bottom"
-                            control={
-                                <Switch
-                                    menutype={menutype}
-                                    onChange={handleCardSwitch}
-                                />
-                            }
-                            label={menutype.type}
-                            labelPlacement="bottom"
-                        />
-                        
+                        <Box
+                        style={{
+                            display: 'flex',
+                            width: '50%',
+                            alignItems: 'center',
+                            // border: '1px solid red', 
+                        }}
+                        >
+                            <Box style={{flexGrow: 1}}></Box>
+                            {!initialpage && showSlider}
+                        </Box>
                         {/* About Us Button */}
-                        <Box>
+                        <Box
+                            style={{
+                                display: 'flex',
+                                width: '25%',
+                                alignItems: 'center',
+                                // border: '1px solid red', 
+                            }}
+                        >
+                            <Box style={{flexGrow: 1}}></Box>
                             <IconButton 
                                 onClick={handleAboutOpen}
                                 color='primary' 
