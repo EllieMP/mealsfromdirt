@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
 import MealMenu from './MealMenu';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import FilterMenu from './FilterMenu';
 import { Typography } from '@mui/material';
 import GeocodingSearchBar from './Search';
@@ -12,7 +12,7 @@ function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});
     const [coordinates, setCoordinates] = useState(null);
-    const [pageType, setPageType] = useState(true); 
+    const [initialpage, setInitialPage] = useState(true); 
         // true -> initial page :: false -> main page
 
     const whichMenu = () => {
@@ -24,7 +24,7 @@ function Main(){
     }
 
     const whichPage = () => {
-        if(pageType){
+        if(initialpage){
             return <StartingPage />
         }else {
             return <MainPage />
@@ -39,7 +39,8 @@ function Main(){
                         menutype={menutype}
                         setMenuType={setMenuType}
                         setCoordinates={setCoordinates}
-                        setPageType={setPageType}
+                        initialpage={initialpage}
+                        setInitialPage={setInitialPage}
                     />
     
                     {console.log(coordinates)}
@@ -55,6 +56,15 @@ function Main(){
     const StartingPage = () => {
         return(
             <Fragment>  
+                <Box>
+                    <TopBar
+                        menutype={menutype}
+                        setMenuType={setMenuType}
+                        setCoordinates={setCoordinates}
+                        initialpage={initialpage}
+                        setInitialPage={setInitialPage}
+                    />
+                </Box>
                 <Box
                     sx={{
                         display: 'flex',
@@ -62,20 +72,37 @@ function Main(){
                         alignItems: 'center',
                         justifyContent: 'center',
                         height: '100%',
-                        m: 10,
-                        border: '1px solid red' 
+                        m: 3,
+                        // border: '1px solid red' 
                     }}
                 >
-                    <Box>
-                        <Typography>
-                            <img style={{ height: 360, width: 560 }} src="/mfdLogo.png" alt="Meals From Dirt Logo" />
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '75%',
+                            mb: 3,
+                            // border: '1px solid red' 
+                        }}
+                    >
+                        <Typography variant='h1' align='left' fontFamily='Arial' fontWeight='Bold'>
+                            What Can You Grow In Your Home?
+                            {/* <img style={{ height: 360, width: 560 }} src="/mfdLogo.png" alt="Meals From Dirt Logo" /> */}
                         </Typography>  
                     </Box>
-                    <Box>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            width: '35%',
+
+                        }}
+                    >
                         <GeocodingSearchBar 
                             coordinates={coordinates}
                             setCoordinates={setCoordinates}
-                            setPageType={setPageType}
+                            setInitialPage={setInitialPage}
                         />
                     </Box>
                 </Box>
