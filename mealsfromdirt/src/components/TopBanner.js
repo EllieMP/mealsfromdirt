@@ -18,7 +18,6 @@ function TopBar(props) {
     const [open, setOpen] = useState(false);
 
     const handleCardSwitch = () => {
-        console.log(menutype);
         if(menutype.type === 'Crop'){
             setMenuType({type: 'Meal'})
         }else if(menutype.type === 'Meal'){

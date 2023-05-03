@@ -36,7 +36,6 @@ class cordsToRecipesController {
                                 ctx.status = 500;
                                 reject(err);
                             }
-                            console.log(cropsRes);
                             ctx.body = cropsRes;
                             ctx.status = 200;
                             resolve();

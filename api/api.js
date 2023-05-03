@@ -3,8 +3,10 @@ const defaultRouter = require('./routes/default.js');
 const bodyParser = require('koa-bodyparser');
 const koajson = require('koa-json');
 const config = require('./config.json');
+const cors = require('@koa/cors');
 
 const api = new Koa();
+api.use(cors());
 // Using a config file to make storing and managing sensitive information on blue easier.  
 const API_PORT = config.apiPort; // Assigned for ssu blue
 
