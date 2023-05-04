@@ -3,23 +3,22 @@ import Box from "@mui/material/Box";
 import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
 import MealMenu from './MealMenu';
-// import Button from '@mui/material/Button';
 import FilterMenu from './FilterMenu';
 import { Typography } from '@mui/material';
 import GeocodingSearchBar from './Search';
+import APIInterface from '../API_Interface/API_Interface.js'
 
 function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});
-    const [coordinates, setCoordinates] = useState(null);
-    const [initialpage, setInitialPage] = useState(true); 
-        // true -> initial page :: false -> main page
+    const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
+    const [pageType, setPageType] = useState(true);
 
     const whichMenu = () => {
         if(menutype.type === 'Crop'){
-            return <CropMenu />
+            return <CropMenu coordinates={coordinates} />
         }else if(menutype.type === 'Meal'){
-            return <MealMenu />
+            return <MealMenu coordinates={coordinates} />
         }
     }
 
@@ -42,11 +41,7 @@ function Main(){
                         initialpage={initialpage}
                         setInitialPage={setInitialPage}
                     />
-    
-                    {console.log(coordinates)}
-
                     <FilterMenu/>
-    
                     {whichMenu()}  
                 </Box>
             </Fragment>

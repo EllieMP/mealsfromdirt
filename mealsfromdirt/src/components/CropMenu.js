@@ -1,11 +1,23 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import Container from "@mui/material/Container";
 import Grid from '@mui/material/Grid';
 import CropCard from './CropCard';
 
 function CropMenu(props){
-    const { cropCardInfo } = props;
-    console.log(cropCardInfo);
+    const { coordinates } = props;
+
+    const [cropCardInfo, setCropInfo] = useState([]);
+    
+    useEffect(() => {
+        const fetchCropData = async () => {
+            const result = await fetch(`http://192.168.1.101:3307/api/v1/cords_to_crops/${coordinates.lat}/${coordinates.lng}`);
+            result.json().then(json => {
+                setCropInfo(json);
+            })
+        }
+        fetchCropData();
+    }, []);
+
     if (cropCardInfo != undefined && cropCardInfo.length != 0) {
         return(
             <Fragment>
@@ -43,7 +55,7 @@ function CropMenu(props){
                         
                     }}
                 >
-                    <CropCard cropName='No crops found' cropImgURL='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVdTLhSBuvDTmljJS06iWMY4o-j1OokyZvug&usqp=CAU' cropDesc='No crops found :(' cropResources=''/>
+                    Loading your results...
                 </Container>
             </Fragment>
         )

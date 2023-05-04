@@ -1,27 +1,26 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Container from "@mui/material/Container";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
+import MealCard from './MealCard.js';
+
 //import switchConfig from "./configuration";
 
-function MealMenu(){
-    const [open, setOpen] = useState(false);
+function MealMenu(props){
 
-    const handleCardOpen = () => {
-        setOpen(true);
-    }
-    const handleCardClose = () => {
-        setOpen(false);
-    }
+  const { coordinates } = props;
+  const [recipeCardInfo, setRecipeInfo] = useState([]);
+  
+  useEffect(() => {
+      const fetchCropData = async () => {
+          const result = await fetch(`http://192.168.1.101:3307/api/v1/cords_to_recipes/${coordinates.lat}/${coordinates.lng}`);
+          result.json().then(json => {
+              setRecipeInfo(json);
+          })
+      }
+      fetchCropData();
+  }, []);
 
+  if (recipeCardInfo != undefined && recipeCardInfo.length != 0) {
     return(
         <Fragment>
             <Container
@@ -33,44 +32,38 @@ function MealMenu(){
                     
                 }}
             >
-                <Card sx={{  width:200, height:200, m: 2 }}>
-                    <CardActionArea onClick={handleCardOpen}>
-                        <CardContent>
-                            <Typography gutterBottom variant="h6" component="div">
-                                Meal Card Content
-                            </Typography>
-                        </CardContent>
-                        <CardMedia
-                            //src={}
-                            component="img"
-                            height="100"
-                            alt="image"
-                        />
-                    </CardActionArea>
-                </Card>
-                <Stack>
-                    <Dialog open={open}
-                            onClose={handleCardClose}>
-                            <DialogTitle>Meal Card Content</DialogTitle>
-                            <DialogContent>
-                                <DialogContentText>
-                                    Ingredients
-                                </DialogContentText>
-                                <DialogContentText>
-                                    Description
-                                </DialogContentText>
-                                <DialogContentText>
-                                    Recommendation
-                                </DialogContentText>
-                                <DialogContentText>
-                                    Resources
-                                </DialogContentText>
-                            </DialogContent>
-                    </Dialog>
-               </Stack>
+                <Grid container>
+                    {
+                        recipeCardInfo.map((recipeCardInfo, idx) => 
+                            <Grid item key={idx}>
+                                <MealCard recipe_name={recipeCardInfo.recipe_name} 
+                                        recipe_description={recipeCardInfo.recipe_description} 
+                                        recipe_image_link={recipeCardInfo.recipe_image_link} 
+                                        recipe_instructions={recipeCardInfo.recipe_instructions}/>
+                            </Grid>)
+                    }
+                    </Grid>
             </Container>
         </Fragment>
     )
+  }
+  else {
+      return(
+          <Fragment>
+              <Container
+                  maxWidth="md"
+                  sx={{
+                      alignItems: 'center',
+                      border: '1px solid black',
+                      backgroundColor: 'grey'
+                      
+                  }}
+              >
+                  Loading your results...
+              </Container>
+          </Fragment>
+      )
+  }
 }
 
 export default MealMenu;
