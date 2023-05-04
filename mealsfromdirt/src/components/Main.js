@@ -1,4 +1,5 @@
 import {Fragment, useState} from 'react';
+
 import Box from "@mui/material/Box";
 import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
@@ -11,9 +12,8 @@ import GeocodingSearchBar from './Search';
 function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});
-    const [coordinates, setCoordinates] = useState(null);
-    const [initialpage, setInitialPage] = useState(true); 
-        // true -> initial page :: false -> main page
+    const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
+    const [initialpage, setInitialPage] = useState(true); // true -> initial page :: false -> main page
 
     const whichMenu = () => {
         if(menutype.type === 'Crop'){
