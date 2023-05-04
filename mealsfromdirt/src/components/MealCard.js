@@ -27,16 +27,13 @@ function MealCard(props) {
 
     return (
     <Fragment>
-        <Card sx={{  width:200, height:270, m: 2 }}>
+        <Card sx={{  width: 300, m: 2, justifyContent: 'center'}}>
             <CardActionArea onClick={handleCardOpen}>
-                <Box sx={{ height: 150, 
-                           width: 200}}>
-                    <CardContent >
-                        <Typography gutterBottom variant="h6" component="div">
-                            {recipe_name}
-                        </Typography>
-                    </CardContent>
-                </Box>
+                <CardContent>
+                    <Typography gutterBottom variant="h7" component="div" fontWeight="bold">
+                        {recipe_name}
+                    </Typography>
+                </CardContent>
                 <CardMedia
                         image={recipe_image_link}
                         component="img"
@@ -49,12 +46,18 @@ function MealCard(props) {
             <Dialog open={open}
                     onClose={handleCardClose}>
                     <DialogTitle>{recipe_name}</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Description: {recipe_description}
+                    <DialogContent dividers>
+                        <DialogContentText fontWeight="bold">
+                            Description: 
+                            <Typography variant="body2" color="text.secondary">
+                                {recipe_description}
+                            </Typography>
                         </DialogContentText>
-                        <DialogContentText>
-                            Instructions: {recipe_instructions}
+                        <DialogContentText fontWeight="bold">
+                            Instructions: 
+                            <Typography variant="body2" color="text.secondary">
+                                {recipe_instructions}
+                            </Typography>
                         </DialogContentText>
                     </DialogContent>
             </Dialog>

@@ -9,10 +9,13 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import Stack from '@mui/material/Stack';
+import Link from '@mui/material/Link';
 
 function CropCard(props){
+
     const {cropName, cropImgURL, cropDesc, cropResources, cropPlantMonth, cropHarvestMonth} = props;
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',' Dec'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November',' December'];
+
     const [open, setOpen] = useState(false);
 
     const handleCardOpen = () => {
@@ -26,10 +29,10 @@ function CropCard(props){
 
     return(
         <Fragment>
-            <Card sx={{  width:200, height:200, m: 2 }}>
+            <Card sx={{  width: 250, m: 2 }}>
                 <CardActionArea onClick={handleCardOpen}>
                     <CardContent>
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography gutterBottom variant="h6" component="div"  fontWeight="bold">
                             {cropName}
                         </Typography>
                     </CardContent>
@@ -46,19 +49,31 @@ function CropCard(props){
                     open={open}
                     onClose={handleCardClose}
                 >
-                    <DialogTitle>Crop Card Content</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Description: {cropDesc}
+                    <DialogTitle fontWeight="bold">{cropName}</DialogTitle>
+                    <DialogContent dividers>
+                        <DialogContentText fontWeight="bold">
+                            Description:
+                            <Typography variant="body2" color="text.secondary">
+                                {cropDesc}
+                            </Typography>
                         </DialogContentText>
-                        <DialogContentText>
-                            Plant Month: {months[cropPlantMonth - 1]}
+                        <DialogContentText fontWeight="bold">
+                            Plant Month: 
+                            <Typography variant="body2" color="text.secondary">
+                              {months[cropPlantMonth - 1]}
+                            </Typography>
                         </DialogContentText>
-                        <DialogContentText>
-                            Harvest Month: {months[cropHarvestMonth - 1]}
+                        <DialogContentText fontWeight="bold">
+                            Harvest Month: 
+                            <Typography variant="body2" color="text.secondary">
+                              {months[cropHarvestMonth - 1]}
+                            </Typography>
                         </DialogContentText>
-                        <DialogContentText>
-                            Resources: {cropResources}
+                        <DialogContentText fontWeight="bold">
+                            Resources / Other Useful Information: 
+                            <Typography variant="body2" color="text.secondary">
+                                {cropResources}
+                            </Typography>
                         </DialogContentText>
                     </DialogContent>
                 </Dialog>
