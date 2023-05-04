@@ -1,4 +1,5 @@
 import {Fragment, useState} from 'react';
+
 import Box from "@mui/material/Box";
 import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
@@ -11,7 +12,7 @@ function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});
     const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
-    const [initialpage, setInitialPage] = useState(true);
+    const [initialpage, setInitialPage] = useState(true); // true -> initial page :: false -> main page
 
     const whichMenu = () => {
         if(menutype.type === 'Crop'){
