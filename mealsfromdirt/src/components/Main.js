@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
 import MealMenu from './MealMenu';
-// import Button from '@mui/material/Button';
 import FilterMenu from './FilterMenu';
 import { Typography } from '@mui/material';
 import GeocodingSearchBar from './Search';
@@ -17,9 +16,9 @@ function Main(){
 
     const whichMenu = () => {
         if(menutype.type === 'Crop'){
-            return <CropMenu />
+            return <CropMenu coordinates={coordinates} />
         }else if(menutype.type === 'Meal'){
-            return <MealMenu />
+            return <MealMenu coordinates={coordinates} />
         }
     }
 
@@ -42,11 +41,7 @@ function Main(){
                         initialpage={initialpage}
                         setInitialPage={setInitialPage}
                     />
-    
-                    {console.log(coordinates)}
-
                     <FilterMenu/>
-    
                     {whichMenu()}  
                 </Box>
             </Fragment>
