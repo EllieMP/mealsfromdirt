@@ -13,7 +13,7 @@ import Link from '@mui/material/Link';
 
 function CropCard(props){
 
-    const {cropName, cropImgURL, cropDesc, cropPlantMonth, cropHarvestMonth} = props;
+    const {cropName, cropImgURL, cropDesc, cropResources, cropPlantMonth, cropHarvestMonth} = props;
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November',' December'];
 
     const [open, setOpen] = useState(false);
@@ -72,8 +72,7 @@ function CropCard(props){
                         <DialogContentText fontWeight="bold">
                             Resources / Other Useful Information: 
                             <Typography variant="body2" color="text.secondary">
-                                Follow this link to research more on this crop:
-                                <Link>https://plants.usda.gov/home</Link>
+                                {cropResources}
                             </Typography>
                         </DialogContentText>
                     </DialogContent>
