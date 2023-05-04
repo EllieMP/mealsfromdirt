@@ -14,7 +14,7 @@ import Link from '@mui/material/Link';
 function CropCard(props){
 
     const {cropName, cropImgURL, cropDesc, cropPlantMonth, cropHarvestMonth} = props;
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',' Dec'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November',' December'];
 
     const [open, setOpen] = useState(false);
 
