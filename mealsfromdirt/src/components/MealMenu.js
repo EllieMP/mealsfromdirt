@@ -12,7 +12,7 @@ function MealMenu(props){
   
   useEffect(() => {
       const fetchCropData = async () => {
-          const result = await fetch(`http://192.168.1.101:3307/api/v1/cords_to_recipes/${coordinates.lat}/${coordinates.lng}`);
+          const result = await fetch(`http://localhost:3307/api/v1/cords_to_recipes/${coordinates.lat}/${coordinates.lng}`);
           result.json().then(json => {
               setRecipeInfo(json);
           })

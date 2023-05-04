@@ -6,13 +6,12 @@ import MealMenu from './MealMenu';
 import FilterMenu from './FilterMenu';
 import { Typography } from '@mui/material';
 import GeocodingSearchBar from './Search';
-import APIInterface from '../API_Interface/API_Interface.js'
 
 function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});
     const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
-    const [pageType, setPageType] = useState(true);
+    const [initialpage, setInitialPage] = useState(true);
 
     const whichMenu = () => {
         if(menutype.type === 'Crop'){
