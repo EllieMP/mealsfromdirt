@@ -1,4 +1,5 @@
 import {Fragment, useState} from 'react';
+
 import Box from "@mui/material/Box";
 import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
@@ -12,7 +13,7 @@ function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});
     const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
-    const [initialpage, setInitialPage] = useState(true);
+    const [initialpage, setInitialPage] = useState(true); // true -> initial page :: false -> main page
 
     const whichMenu = () => {
         if(menutype.type === 'Crop'){
@@ -88,7 +89,7 @@ function Main(){
                         <Typography variant='h3' align='center' fontFamily='American Typewriter' fontWeight='Bold'>
                             Look Up and Discover {' '}
                         <Typical
-                            steps={['Crops!', 1000, 'Meals!', 1000, 'Agriculture!', 1000]}
+                            steps={['Crops!', 1000, '', 1000, 'Meals!', 1000, '', 1000, 'Agriculture!', 1000, '', 1000]}
                             loop={5}
                             wrapper="b"
                         />

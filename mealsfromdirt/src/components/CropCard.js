@@ -12,7 +12,9 @@ import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 
 function CropCard(props){
-    const {cropName, cropImgURL, cropDesc} = props;
+
+    const {cropName, cropImgURL, cropDesc, cropPlantMonth, cropHarvestMonth} = props;
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',' Dec'];
 
     const [open, setOpen] = useState(false);
 
@@ -22,6 +24,8 @@ function CropCard(props){
     const handleCardClose = () => {
         setOpen(false);
     }
+
+
 
     return(
         <Fragment>
@@ -51,6 +55,18 @@ function CropCard(props){
                             Description:
                             <Typography variant="body2" color="text.secondary">
                                 {cropDesc}
+                            </Typography>
+                        </DialogContentText>
+                        <DialogContentText fontWeight="bold">
+                            Plant Month: 
+                            <Typography variant="body2" color="text.secondary">
+                              {months[cropPlantMonth - 1]}
+                            </Typography>
+                        </DialogContentText>
+                        <DialogContentText fontWeight="bold">
+                            Harvest Month: 
+                            <Typography variant="body2" color="text.secondary">
+                              {months[cropHarvestMonth - 1]}
                             </Typography>
                         </DialogContentText>
                         <DialogContentText fontWeight="bold">
