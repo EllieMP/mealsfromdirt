@@ -89,7 +89,7 @@ function Main(){
                         <Typography variant='h3' align='center' fontFamily='American Typewriter' fontWeight='Bold'>
                             Look Up and Discover {' '}
                         <Typical
-                            steps={['Crops!', 1000, 'Meals!', 1000, 'Agriculture!', 1000]}
+                            steps={['Crops!', 1000, '', 1000, 'Meals!', 1000, '', 1000, 'Agriculture!', 1000, '', 1000]}
                             loop={5}
                             wrapper="b"
                         />
