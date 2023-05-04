@@ -57,7 +57,6 @@ function TopBar(props) {
 
     return(
         <Fragment>
-            <Box>
                 <AppBar 
                     position="static" 
                     sx={{
@@ -73,10 +72,8 @@ function TopBar(props) {
                                 // border: '1px solid red', 
                             }}
                         >
-                            <Typography
-                                variant="h6"
-                            >
-                               <img style={{ height: 90, width: 140 }} src="/mfdLogo.png" alt="Meals From Dirt Logo" />
+                            <Typography variant="h5">
+                               <img style={{ height: 95, width: 145}} src="/mfdMiniLogo.png" alt="Meals From Dirt Mini Logo" />
                             </Typography>  
                         </Box>
 
@@ -126,7 +123,6 @@ function TopBar(props) {
                         
                     </Toolbar>   
                 </AppBar>
-            </Box>
         </Fragment>
     )
 }
