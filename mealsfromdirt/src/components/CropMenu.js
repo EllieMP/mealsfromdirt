@@ -10,7 +10,7 @@ function CropMenu(props){
     
     useEffect(() => {
         const fetchCropData = async () => {
-            const result = await fetch(`http://192.168.1.101:3307/api/v1/cords_to_crops/${coordinates.lat}/${coordinates.lng}`);
+            const result = await fetch(`http://localhost:3307/api/v1/cords_to_crops/${coordinates.lat}/${coordinates.lng}`);
             result.json().then(json => {
                 setCropInfo(json);
             })

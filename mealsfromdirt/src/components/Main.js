@@ -1,4 +1,5 @@
 import {Fragment, useState} from 'react';
+
 import Box from "@mui/material/Box";
 import TopBar from './TopBanner';
 import CropMenu from './CropMenu';
@@ -6,13 +7,13 @@ import MealMenu from './MealMenu';
 import FilterMenu from './FilterMenu';
 import { Typography } from '@mui/material';
 import GeocodingSearchBar from './Search';
-import APIInterface from '../API_Interface/API_Interface.js'
+import Typical from "react-typical";
 
 function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});
     const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
-    const [pageType, setPageType] = useState(true);
+    const [initialpage, setInitialPage] = useState(true); // true -> initial page :: false -> main page
 
     const whichMenu = () => {
         if(menutype.type === 'Crop'){
@@ -51,7 +52,13 @@ function Main(){
     const StartingPage = () => {
         return(
             <Fragment>  
-                <Box>
+                <Box
+                    sx= {{
+                        height: '100vh',
+                        backgroundSize: 'cover', 
+                        backgroundImage: 'url(https://agrilife.org/texasaglaw/files/2017/08/sveta-fedarava-142756.jpg)'
+                    }}
+                >
                     <TopBar
                         menutype={menutype}
                         setMenuType={setMenuType}
@@ -59,39 +66,42 @@ function Main(){
                         initialpage={initialpage}
                         setInitialPage={setInitialPage}
                     />
-                </Box>
                 <Box
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        height: '100%',
-                        m: 3,
-                        // border: '1px solid red' 
+                        height: '60%',
+                        m: 3
                     }}
-                >
+                >   
                     <Box
                         sx={{
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            width: '75%',
-                            mb: 3,
-                            // border: '1px solid red' 
+                            width: '70%',
+                            m: 3
                         }}
                     >
-                        <Typography variant='h1' align='left' fontFamily='Arial' fontWeight='Bold'>
-                            What Can You Grow In Your Home?
-                            {/* <img style={{ height: 360, width: 560 }} src="/mfdLogo.png" alt="Meals From Dirt Logo" /> */}
+                        <Typography variant='h3' align='center' fontFamily='American Typewriter' fontWeight='Bold'>
+                            Look Up and Discover {' '}
+                        <Typical
+                            steps={['Crops!', 1000, 'Meals!', 1000, 'Agriculture!', 1000]}
+                            loop={5}
+                            wrapper="b"
+                        />
+                        </Typography>
+                        <Typography variant='h6' align='center' fontFamily='American Typewriter' fontWeight='Bold'>
+                            Do you know what grows in your area?
                         </Typography>  
-                    </Box>
                     <Box
                         sx={{
                             display: 'flex',
                             width: '35%',
-
+                            m: 3
                         }}
                     >
                         <GeocodingSearchBar 
@@ -100,6 +110,8 @@ function Main(){
                             setInitialPage={setInitialPage}
                         />
                     </Box>
+                </Box>
+                </Box>
                 </Box>
             </Fragment>
         )
