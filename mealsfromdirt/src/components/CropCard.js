@@ -9,9 +9,10 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import Stack from '@mui/material/Stack';
+import Link from '@mui/material/Link';
 
 function CropCard(props){
-    const {cropName, cropImgURL, cropDesc, cropResources} = props;
+    const {cropName, cropImgURL, cropDesc} = props;
 
     const [open, setOpen] = useState(false);
 
@@ -24,10 +25,10 @@ function CropCard(props){
 
     return(
         <Fragment>
-            <Card sx={{  width:200, height:200, m: 2 }}>
+            <Card sx={{  width: 250, m: 2 }}>
                 <CardActionArea onClick={handleCardOpen}>
                     <CardContent>
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography gutterBottom variant="h6" component="div"  fontWeight="bold">
                             {cropName}
                         </Typography>
                     </CardContent>
@@ -44,13 +45,20 @@ function CropCard(props){
                     open={open}
                     onClose={handleCardClose}
                 >
-                    <DialogTitle>Crop Card Content</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Description: {cropDesc}
+                    <DialogTitle fontWeight="bold">{cropName}</DialogTitle>
+                    <DialogContent dividers>
+                        <DialogContentText fontWeight="bold">
+                            Description:
+                            <Typography variant="body2" color="text.secondary">
+                                {cropDesc}
+                            </Typography>
                         </DialogContentText>
-                        <DialogContentText>
-                            Resources: {cropResources}
+                        <DialogContentText fontWeight="bold">
+                            Resources / Other Useful Information: 
+                            <Typography variant="body2" color="text.secondary">
+                                Follow this link to research more on this crop:
+                                <Link>https://plants.usda.gov/home</Link>
+                            </Typography>
                         </DialogContentText>
                     </DialogContent>
                 </Dialog>
