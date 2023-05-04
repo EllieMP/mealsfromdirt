@@ -26,7 +26,7 @@ function GeocodingSearchBar(props) {
         const latitude = data.results[0].geometry.location.lat;
         const longitude = data.results[0].geometry.location.lng;
         setCoordinates({lat: latitude, lng: longitude});
-        setPageType(false);
+        setInitialPage(false);
 
       })
       .catch(error => {
