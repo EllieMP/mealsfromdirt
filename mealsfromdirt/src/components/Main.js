@@ -6,7 +6,6 @@ import MealMenu from './MealMenu';
 import FilterMenu from './FilterMenu';
 import { Typography } from '@mui/material';
 import GeocodingSearchBar from './Search';
-import APIInterface from '../API_Interface/API_Interface.js'
 
 function Main(){
 
