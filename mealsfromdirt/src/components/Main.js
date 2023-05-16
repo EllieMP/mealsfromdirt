@@ -9,6 +9,11 @@ import { Typography } from '@mui/material';
 import GeocodingSearchBar from './Search';
 import Typical from "react-typical";
 
+
+/**
+ * 
+ * @returns The main react component
+ */
 function Main(){
 
     const [menutype, setMenuType] = useState({type: 'Crop'});

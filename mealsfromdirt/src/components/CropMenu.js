@@ -3,6 +3,12 @@ import Container from "@mui/material/Container";
 import Grid from '@mui/material/Grid';
 import CropCard from './CropCard';
 
+/**
+ * 
+ * @param {*} props Contains props passed to component
+ * @prop coordinates Contains the useState reoresenting the coordinates of the user's address
+ * @returns 
+ */
 function CropMenu(props){
     const { coordinates } = props;
 

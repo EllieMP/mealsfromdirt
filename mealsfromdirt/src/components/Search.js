@@ -4,6 +4,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import { grey } from '@mui/material/colors';
 import Access from './Info';
 
+
+/**
+ * 
+ * @param {*} props Contains props passed to component
+ * @prop setCoordinates Contains coordinate useState modified
+ * @prop setInitalPage Contains the inital page useState modified
+ * @returns GeocodingSearchBar react component
+ */
 function GeocodingSearchBar(props) {
   const {setCoordinates} = props;
   const {setInitialPage} = props;

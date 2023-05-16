@@ -9,6 +9,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import Typography from '@mui/material/Typography';
 
+/**
+ * 
+ * @param {*} props Contains props passed to component
+ * @prop open A boolean indicating whether or not this component is displayed
+ * @returns About us block for help button
+ */
 function AboutUs(props) {
     const {open} = props;
     const {handleAboutClose} = props;

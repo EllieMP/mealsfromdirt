@@ -3,8 +3,12 @@ import Container from "@mui/material/Container";
 import Grid from '@mui/material/Grid';
 import MealCard from './MealCard.js';
 
-//import switchConfig from "./configuration";
-
+/**
+ * 
+ * @param {*} props Contains props passed to component
+ * @prop coordinates Contains the coordinates of the user's address
+ * @returns MealMenu react component
+ */
 function MealMenu(props){
 
   const { coordinates } = props;
