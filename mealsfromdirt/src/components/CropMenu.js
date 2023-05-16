@@ -34,7 +34,13 @@ function CropMenu(props){
                     {
                             cropCardInfo.map((cropCardInfo, idx) => 
                             <Grid item key={cropCardInfo.crop_id}>
-                                <CropCard cropName={cropCardInfo.crop_name} cropImgURL={cropCardInfo.crop_image_link} cropDesc={cropCardInfo.crop_description} cropResources='Sample Recource'/>
+                                <CropCard cropName={cropCardInfo.crop_name} 
+                                          cropImgURL={cropCardInfo.crop_image_link} 
+                                          cropDesc={cropCardInfo.crop_description} 
+                                          cropResources='https://plants.usda.gov/home'
+                                          cropPlantMonth={cropCardInfo.crop_plant_month}
+                                          cropHarvestMonth={cropCardInfo.crop_harvest_month}
+                                          />
                             </Grid>)
                     }
                     </Grid>
