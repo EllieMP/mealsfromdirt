@@ -69,7 +69,6 @@ function TopBar(props) {
                                 display: 'flex',
                                 width: '90%',
                                 alignItems: 'center',
-                                // border: '1px solid red', 
                             }}
                         >
                             <Typography variant="h5">
@@ -82,7 +81,6 @@ function TopBar(props) {
                         style={{
                             display: 'flex',
                             width: '100%',
-                            // border: '1px solid red', 
                         }}
                         >
                             {!initialpage && showSearch}
@@ -93,7 +91,6 @@ function TopBar(props) {
                             display: 'flex',
                             width: '50%',
                             alignItems: 'center',
-                            // border: '1px solid red', 
                         }}
                         >
                             <Box style={{flexGrow: 1}}></Box>

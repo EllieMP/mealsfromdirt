@@ -118,8 +118,6 @@ function Main(){
     }
 
     return(
-        // <MainPage />
-        // <StartingPage />
         <Box>
             {whichPage()}  
         </Box>

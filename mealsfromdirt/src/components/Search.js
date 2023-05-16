@@ -4,7 +4,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { grey } from '@mui/material/colors';
 import Access from './Info';
 
-// '1801 E Cotati Ave, Rohnert Park, CA';
 function GeocodingSearchBar(props) {
   const {setCoordinates} = props;
   const {setInitialPage} = props;

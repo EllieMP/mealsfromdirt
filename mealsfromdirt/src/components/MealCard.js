@@ -9,9 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
 
-// recipe_id, recipe_name, recipe_description, recipe_instructions, recipe_image_link
 function MealCard(props) {
 
     const [open, setOpen] = useState(false);
