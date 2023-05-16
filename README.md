@@ -3,6 +3,7 @@
 Meals From Dirt is a full-stack web application that allows users to search and discover crops they can grow where they live and recipes they can make based on those crops. The app is built using React for the frontend, KoaJS for the API, and MongoDB for the database.  Postgis is used for deciphering geographical data.
 
 ## Table of Contents
+- [Demo](#demo)
 - [Getting Started](#getting-started)
 - [Technologies Used](#technologies-used)
 - [Contributors](#contributors)
