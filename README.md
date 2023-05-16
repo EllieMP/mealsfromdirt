@@ -7,6 +7,7 @@ Meals From Dirt is a full-stack web application that allows users to search and 
 - [Getting Started](#getting-started)
 - [Technologies Used](#technologies-used)
 - [Contributors](#contributors)
+- [Notes](#notes)
 
 ## Demo
 
@@ -29,6 +30,15 @@ Note: A mariaDB and postgreSQL instance are required to run this app.  A mariadb
 - KoaJS
 - MongoDB
 - Postgres + Postgis
+
+## Notes
+Why Postgres and MariaDB?
+
+Initally this project utilized MariaDB alone and the plan was to use a KML file representing ecoregion borders to determine an ecoregion from a set of coordinates.  This analysis took too long for each search.  Our solution was to use the PostgreSQL extention PostGIS.  We used an open source GIS software called QGIS to import our ecoregion shapemap into a PostgreSQL server.  We then used some functions from the PostGIS extention to take a set of coordinates and return what ecoregion(s) they were in.  We had a stretch goal of mergeing the MariaDB tables into our postgres database but ran out of time for this project.
+
+Why Meals From Dirt?
+
+As the capstone project for our computer science degrees, we wanted to create something that could create value for users while leaving a positive impact on the world.  Increasing awareness of the fragile state of the american agriculture industry and providing a resource to those that may be impacted by distater looking to grow some or all of their own food created value for the user and could leave an impact on the world.
 
 ## Contributors
 
