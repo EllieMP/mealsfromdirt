@@ -10,6 +10,15 @@ import { FormControlLabel} from "@mui/material";
 import AboutUs from "./AboutPopUp";
 import GeocodingSearchBar from "./Search";
 
+/**
+ * 
+ * @param {*} props Contains props passed to component
+ * @prop menutype A string indicating what menu type should be displayed
+ * @prop setMenuType A string containing the menu type useState modified
+ * @prop setCoordinates A callbac containing the coordinate useState modified
+ * @prop setInitalPage Contains the inital page useState modified
+ * @returns TopBar react component
+ */
 function TopBar(props) { 
     const {menutype} = props;
     const {setMenuType} = props;
@@ -69,7 +78,6 @@ function TopBar(props) {
                                 display: 'flex',
                                 width: '90%',
                                 alignItems: 'center',
-                                // border: '1px solid red', 
                             }}
                         >
                             <Typography variant="h5">
@@ -82,7 +90,6 @@ function TopBar(props) {
                         style={{
                             display: 'flex',
                             width: '100%',
-                            // border: '1px solid red', 
                         }}
                         >
                             {!initialpage && showSearch}
@@ -93,7 +100,6 @@ function TopBar(props) {
                             display: 'flex',
                             width: '50%',
                             alignItems: 'center',
-                            // border: '1px solid red', 
                         }}
                         >
                             <Box style={{flexGrow: 1}}></Box>

@@ -10,11 +10,20 @@ import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
 import { Typography } from "@mui/material";
 
+/**
+ * 
+ * @param {*} slider An integer representing a month of the year with a range of 0 - 11
+ * @returns The month representation of slider
+ */
 function valueLabelFormat(slider){
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',' Dec'];
     return `${months[slider-1]}`;
 }
 
+/**
+ * 
+ * @returns The filter menu component
+ */
 function FilterMenu(){
     const [expanded, setExpanded] = useState(false);
     const [check, setChecked] = useState([true, true]);

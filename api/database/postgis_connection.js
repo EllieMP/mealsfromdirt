@@ -5,8 +5,8 @@ const dbConnection = new Pool({
     user: config.pgUser,
     host: config.pgHost,
     database: config.pgDatabase,
-    password: config.pgPassword, // Password is empty be default
-    port: config.pgPort, // Default port
+    password: config.pgPassword,
+    port: config.pgPort,
 });
 
 module.exports = dbConnection;

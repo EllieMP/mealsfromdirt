@@ -9,8 +9,18 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import Stack from '@mui/material/Stack';
-import Link from '@mui/material/Link';
 
+/**
+ * 
+ * @param {*} props Contains props passed to component
+ * @prop cropName A string containing the name of the card's crop
+ * @prop cropImgURL A string containing a link to an image of the card's crop
+ * @prop cropDesc A string containing a description of the card's crop
+ * @prop cropResources A string containing relevant links to the card's crop
+ * @prop cropPlantMonth An integer 0-11 representing the month this card's crop should be planted
+ * @prop cropHarvestMonth An integer 0-11 representing the month this card's crop should be harvested
+ * @returns A CropCard react component
+ */
 function CropCard(props){
 
     const {cropName, cropImgURL, cropDesc, cropResources, cropPlantMonth, cropHarvestMonth} = props;

@@ -3,13 +3,20 @@
 Meals From Dirt is a full-stack web application that allows users to search and discover crops they can grow where they live and recipes they can make based on those crops. The app is built using React for the frontend, KoaJS for the API, and MongoDB for the database.  Postgis is used for deciphering geographical data.
 
 ## Table of Contents
+- [Demo](#demo)
 - [Getting Started](#getting-started)
 - [Technologies Used](#technologies-used)
 - [Contributors](#contributors)
 
+## Demo
+
+[![Demonstration Video](https://img.youtube.com/vi/jjRMVBHxS-s/0.jpg)](https://www.youtube.com/watch?v=jjRMVBHxS-s)
+
 ## Getting Started
 
 To get started with Meals From Dirt, follow these steps:
+
+Note: A mariaDB and postgreSQL instance are required to run this app.  A mariadb SQL dump file can be found in `/database`.  The postgreSQL dump and be provided upon request due to file size restructions.
 
 1. Clone the repository to your local machine using `git clone https://github.com/ellieMP/meals-from-dirt.git`
 2. Install the necessary dependencies by running `npm install` in both the `client` and `server` directories.

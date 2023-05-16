@@ -9,9 +9,16 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
 
-// recipe_id, recipe_name, recipe_description, recipe_instructions, recipe_image_link
+/**
+ * 
+ * @param {*} props Contains props passed to component
+ * @prop recipe_name Contains the name of the recipe
+ * @prop recipe_description Contains a description of the recipe for this card
+ * @prop recipe_instructions Contains instructions on how to make the recipe for this card
+ * @prop recipe_image_link Contains a string of a link to the image displayed for this card
+ * @returns A MealCard react component
+ */
 function MealCard(props) {
 
     const [open, setOpen] = useState(false);
