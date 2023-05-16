@@ -7,9 +7,15 @@ Meals From Dirt is a full-stack web application that allows users to search and 
 - [Technologies Used](#technologies-used)
 - [Contributors](#contributors)
 
+## Demo
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+
 ## Getting Started
 
 To get started with Meals From Dirt, follow these steps:
+
+Note: A mariaDB and postgreSQL instance are required to run this app.  A mariadb SQL dump file can be found in `/database`.  The postgreSQL dump and be provided upon request due to file size restructions.
 
 1. Clone the repository to your local machine using `git clone https://github.com/ellieMP/meals-from-dirt.git`
 2. Install the necessary dependencies by running `npm install` in both the `client` and `server` directories.
