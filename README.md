@@ -9,7 +9,7 @@ Meals From Dirt is a full-stack web application that allows users to search and 
 
 ## Demo
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![Demonstration Video](https://img.youtube.com/vi/jjRMVBHxS-s/0.jpg)](https://www.youtube.com/watch?v=jjRMVBHxS-s)
 
 ## Getting Started
 
